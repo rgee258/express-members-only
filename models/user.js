@@ -9,7 +9,8 @@ let UserSchema = new Schema(
     lastName: { type: String, required: true, minlength: 1 },
     userName: { type: String, required: true, minlength: 1, match: emailRegex },
     password: { type: String, required: true, minlength: 1 },
-    membership: { type: Boolean }
+    membership: { type: Boolean },
+    admin: { type: Boolean }
   }
 );
 
@@ -18,5 +19,19 @@ UserSchema
 .get(function() {
   return this.firstName + ' ' + this.lastName;
 });
+
+UserSchema
+.virtual('isAdmin')
+.get(function() {
+  if (this.admin === true) { return true; }
+  return false;
+})
+
+UserSchema
+.virtual('isMember')
+.get(function() {
+  if (this.membership === true) { return true; }
+  return false;
+})
 
 module.exports = mongoose.model('User', UserSchema);
