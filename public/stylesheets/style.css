@@ -5,6 +5,16 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+
+#nav ul {
+  padding: 0;
+}
+
+#nav ul li {
+  display: inline-block;
+  padding-right: 1%;
 }
 
 form {

@@ -35,7 +35,8 @@ exports.sign_up_submit = [
         userName: req.body.userName,
         password: req.body.password,
         passwordConfirmation: req.body.passwordConfirmation,
-        membership: false
+        membership: false,
+        admin: false
       }
     );
 
@@ -43,6 +44,11 @@ exports.sign_up_submit = [
     if (!errors.isEmpty()) {
       res.render('signup', { title: 'Sign Up', previous: user, errors: errors.array() });
     } else {
+      // Set admin credentials
+      if (req.body.admin == process.env.ADMIN_CODE) {
+        user.admin = true;
+        user.membership = true;
+      }
       // Generate salt for hashing
       bcrypt.genSalt(10, function(err, salt) {
         if (err) { return next(err) };
@@ -54,7 +60,11 @@ exports.sign_up_submit = [
           // Save as usual and redirect
           user.save(function(err) {
             if (err) { return next(err); }
-            res.redirect('/');
+            // Log in using passport and redirect
+            req.login(user, function(err) {
+              if (err) { return next(err); }
+              return res.redirect('/');
+            });
           });
         });
       });

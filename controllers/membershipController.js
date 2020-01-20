@@ -1,3 +1,4 @@
+const User = require('../models/user.js');
 const validator = require('express-validator');
 
 exports.membership = function(req, res, next) {
