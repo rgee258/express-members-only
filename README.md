@@ -2,7 +2,7 @@
 
 In this repository you'll find a small app exclusive to members only!... Or not really. Here is a simple app where you can sign up to add messages to the club. However only members, which are users that have entered a super secret membership code, are able to see who wrote what message and when they did so.
 
-You can try it on Heroku [here]().
+You can try it on Heroku [here](https://fathomless-fjord-05654.herokuapp.com/).
 
 The membership code if you want to try is on Heroku is: *newmember*.
 
