@@ -4,7 +4,7 @@ In this repository you'll find a small app exclusive to members only!... Or not 
 
 You can try it on Heroku [here](https://fathomless-fjord-05654.herokuapp.com/).
 
-The membership code if you want to try is on Heroku is: *newmember*.
+The membership code if you want to try it on Heroku is: *newmember*.
 
 This project is done following The Odin Project, which can
 be found [here](https://www.theodinproject.com/courses/nodejs/lessons/members-only).
