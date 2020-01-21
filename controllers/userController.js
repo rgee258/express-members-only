@@ -4,6 +4,12 @@ const bcrypt = require('bcryptjs');
 
 // User GET sign up form
 exports.sign_up = function(req, res, next) {
+
+  // Redirect to root if user is already logged in
+  if (req.user) {
+    res.redirect('/');
+  }
+
   res.render('signup', { title: 'Sign Up'});
 };
 
@@ -45,7 +51,7 @@ exports.sign_up_submit = [
       res.render('signup', { title: 'Sign Up', previous: user, errors: errors.array() });
     } else {
       // Set admin credentials
-      if (req.body.admin == process.env.ADMIN_CODE) {
+      if (req.body.admin === process.env.ADMIN_CODE) {
         user.admin = true;
         user.membership = true;
       }

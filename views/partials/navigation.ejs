@@ -2,6 +2,9 @@
   <ul>
     <% if (user) { %>
       <li><a href="/message">Create Message</a></li>
+      <% if (user.isMember === false) { %>
+        <li><a href="/membership">Become Member</a></li>
+      <% } %>
       <li><a href="/logout">Logout</a></li>
     <% } else { %>
       <li><a href="/login">Login</a></li>

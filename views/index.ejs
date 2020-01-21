@@ -8,9 +8,38 @@
     <h1><%= title %></h1>
     <% include ./partials/navigation %>
     <% if (user) { %>
-      <h3>Welcome back <%= user.fullName %></h3>
+      <h2>Welcome back <%= user.fullName %>!</h2>
     <% } else { %>
-      <h3>Welcome to the Members Only Club!</h3>
+      <h2>Welcome to the Members Only Club!</h2>
+    <% } %>
+
+    <% if (messages) { %>
+      <div class="messages">
+      <% for (let i = 0; i < messages.length; i++) { %>
+        <div class="message">
+          <div class="message-title">
+            <h3><%= messages[i].title %></h3>
+          </div>
+          <% if (user && user.isMember === true) { %>
+          <div class="message-details">
+            <p>
+              <span><%= messages[i].author.fullName %></span>
+              <span><%= messages[i].formattedDate %></span>
+            </p>
+          </div>
+          <% } %>
+          <div class="message-body">
+            <p><%= messages[i].body %></p>
+          </div>
+          <% if (user && user.isAdmin === true) { %>
+            <form action="/message/<%= messages[i].id %>/delete" method="POST">
+              <input type="hidden" name="message_id" value="<%= messages[i].id %>">
+              <input type="submit" value="Delete">
+            </form>
+          <% } %>
+        </div>
+      <% } %>
+      </div>
     <% } %>
   </body>
 </html>

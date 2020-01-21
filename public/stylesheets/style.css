@@ -30,3 +30,15 @@ form input {
 form input[type="submit"] {
   width: 5%;
 }
+
+.message {
+  margin: 5px auto;
+  padding: 5px;
+  background-color: azure;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.message-details {
+  font-style: italic;
+}
