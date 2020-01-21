@@ -13,7 +13,7 @@ be found [here](https://www.theodinproject.com/courses/nodejs/lessons/members-on
 
 To run the application, first install the dependencies using **npm install**.
 
-Create a .env to setup the environment variables needed for database access and setting your own password for DELETE actions. These variables are as follows:
+Create a .env to setup the environment variables needed for database access and setting up codes for membership and admin access. These variables are as follows:
 
 - MONGODB_URI (URI for accessing the Mongo DB)
 - MEMBERSHIP_CODE (Code for registering users as members)
